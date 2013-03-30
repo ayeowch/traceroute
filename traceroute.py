@@ -55,6 +55,18 @@ class Traceroute(object):
                 'url': 'traceroute %s' % self.ip_address,
                 'post_data': None,
             },
+            'BY': {
+                'url': 'http://by104.activeby.net/lg/',
+                'post_data': {'method': 'trace', 'host': self.ip_address, 'router': 'http://by104.activeby.net/lg/'}
+            },
+            'RU': {
+                'url': 'http://ipnoc.zenon.net/pcgi/trace.pl?IP=%s' % self.ip_address,
+                'post_data': None
+            },
+            'UK': {
+                'url': 'http://ab.newnet.co.uk/cgi-bin/traceroute?%s' % self.ip_address,
+                'post_data': None
+            }
         }
         self.source = sources[self.country]
 
@@ -291,7 +303,7 @@ def main():
     cmdparser = optparse.OptionParser(usage, version=("traceroute " + __version__))
     cmdparser.add_option("-i", "--ip_address", type="string", default="8.8.8.8", help="IP address of destination host (default: 8.8.8.8)")
     cmdparser.add_option("-c", "--country", type="choice",
-        choices=['US', 'CH', 'JP', 'LO',],
+        choices=['US', 'CH', 'JP', 'LO', 'BY', 'RU', 'UK'],
         default="US",
         help="Traceroute will be initiated from this country; choose 'US' for United States, 'CH' for Switzerland, 'JP' for Japan or 'LO' for localhost to run traceroute locally (default: US)")
     cmdparser.add_option("-t", "--tmp_dir", type="string", default="/tmp", help="Temporary directory to store downloaded traceroute results (default: /tmp)")
