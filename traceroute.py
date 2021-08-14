@@ -127,10 +127,11 @@ class Traceroute(object):
         We use this function to better represent the hosts data in a dict.
         """
         formatted_hops = []
+        # Regex to extract "IP/HOSTNAME (HOSTNAME/IP) [optional ASN] RTT ms".
         regex = r'(' \
-                r'(?P<i1>[\d.]+) \((?P<h1>[\w.-]+)\)' \
+                r'(?P<i1>[\d.]+) \((?P<h1>[\w.-]+)\)(?P<a1>[\s\w\[\]]*)' \
                 r'|' \
-                r'(?P<h2>[\w.-]+) \((?P<i2>[\d.]+)\)' \
+                r'(?P<h2>[\w.-]+) \((?P<i2>[\d.]+)\)(?P<a2>[\s\w\[\]]*)' \
                 r')' \
                 r' (?P<r>\d{1,4}.\d{1,4}\s{0,1}ms)'
         for hop in hops:

@@ -10,7 +10,7 @@
         "url": "http://www.switch.ch/cgi-bin/network/nph-traceroute-ip?destination=_IP_ADDRESS_"
     },
     "JP": {
-        "url": "http://lg01.colo01.bbtower.ad.jp/cgi-bin/lg.cgi",
+        "url": "https://lg01.colo01.bbtower.ad.jp/cgi-bin/lg.cgi",
         "post_data": {"CMD": "traceroute", "ARG": "_IP_ADDRESS_"}
     },
     "RU": {
